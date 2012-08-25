@@ -9,19 +9,19 @@ return array(
         'Socialog',
         'SocialogAdmin',
         'SocialogGithub',
-		'SocialogAnalytics',
-		'SocialogTumblr',
-		'SocialogInstall',
+        'SocialogAnalytics',
+        'SocialogTumblr',
+        'SocialogInstall',
     ),
     'module_listener_options' => array(
-		
-		// Module locations
+
+        // Module locations
         'module_paths' => array(
             './module',
             './vendor',
         ),
-		
-		// Configuration
+
+        // Configuration
         'config_glob_paths'    => array(
             'config/autoload/{,*.}{global,local}.{php,ini}',
         ),

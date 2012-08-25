@@ -14,11 +14,10 @@ class BlogController extends AbstractController
         $viewModel = new ViewModel;
         $viewModel->setTemplate('home');
         $viewModel->posts = $postMapper->findAllPosts();
-        
 
         return $viewModel;
     }
-	
+
     public function postAction()
     {
         $viewModel = new ViewModel;

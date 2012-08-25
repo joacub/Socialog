@@ -1,8 +1,8 @@
 <article class="page">
 	<h2>Github</h2>
-	
+
 	<h2><a href="{{ user.html_url }}" target="_blank">{{ user.name }}</a></h2>
-	
+
 	{% for repo in repositories %}
 		<div>
 			<a href="{{ repo.html_url }}" target="_blank">
@@ -13,6 +13,5 @@
 		</div>
 		<br>
 	{% endfor %}
-	
-</article>
 
+</article>

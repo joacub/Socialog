@@ -26,23 +26,23 @@ return array(
                     ),
                 ),
             ),
-			/**
-			 * Pages Route
-			 */
-			'socialog-page' => array(
-				'type' => 'Segment',
-				'options' => array(
-					'route' => '/page/:id',
-					'constraints' => array(
-						'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-					),
-					'defaults' => array(
-						'controller'	=> 'socialog-page',
-						'action'		=> 'view',
-					),
-				),
-			),
+            /**
+             * Pages Route
+             */
+            'socialog-page' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/page/:id',
+                    'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
+                    'defaults' => array(
+                        'controller'	=> 'socialog-page',
+                        'action'		=> 'view',
+                    ),
+                ),
+            ),
         ),
     ),
 

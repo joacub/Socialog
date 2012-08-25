@@ -28,19 +28,19 @@ class PageController extends AbstractActionController
     public function viewAction()
     {
         $sm = $this->getServiceLocator();
-		$layout =  $this->layout();
+        $layout =  $this->layout();
         $config = $sm->get('Config');
-		
-		$id = $this->params('id');
+
+        $id = $this->params('id');
 
         $pageMapper = $sm->get('socialog-pagemapper');
 
-		$layout->profile = $config['profile'];
+        $layout->profile = $config['profile'];
 
         $viewModel = new ViewModel;
         $viewModel->setTemplate('page');
         $viewModel->page = $pageMapper->findById($id);
-		$layout->pages = $pageMapper->findAllPages();
+        $layout->pages = $pageMapper->findAllPages();
 
         return $viewModel;
     }

@@ -2,9 +2,9 @@
 
 namespace Socialog\Mapper;
 
-interface PostMapperInterface {
-	
-	public function findAllPosts();
-	public function findById($id);
-	
+interface PostMapperInterface
+{
+    public function findAllPosts();
+    public function findById($id);
+
 }

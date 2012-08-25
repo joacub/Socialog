@@ -24,8 +24,8 @@ class PostMapper extends AbstractDbMapper
      */
     public function findAllPosts()
     {
-		$select = new Select($this->tableName);
-		$select->order('id DESC');
+        $select = new Select($this->tableName);
+        $select->order('id DESC');
 
         return $this->selectWith($select);
     }
