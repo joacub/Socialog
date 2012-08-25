@@ -6,22 +6,22 @@
 	path = vendor/ZF2
 	url = https://github.com/zendframework/zf2.git
 
-[submodule "vendor/SocialogAdmin"]
-	path = vendor/SocialogAdmin
+[submodule "module/SocialogAdmin"]
+	path = module/SocialogAdmin
 	url = https://github.com/Socialog/SocialogAdmin.git
 
-[submodule "vendor/SocialogAnalytics"]
-	path = vendor/SocialogAnalytics
+[submodule "module/SocialogAnalytics"]
+	path = module/SocialogAnalytics
 	url = https://github.com/Socialog/SocialogAnalytics.git
 
-[submodule "vendor/SocialogGithub"]
-	path = vendor/SocialogGithub
+[submodule "module/SocialogGithub"]
+	path = module/SocialogGithub
 	url = https://github.com/Socialog/SocialogGithub.git
 
-[submodule "vendor/SocialogInstall"]
-	path = vendor/SocialogInstall
+[submodule "module/SocialogInstall"]
+	path = module/SocialogInstall
 	url = https://github.com/Socialog/SocialogInstall.git
 
-[submodule "vendor/SocialogTumblr"]
-	path = vendor/SocialogTumblr
+[submodule "module/SocialogTumblr"]
+	path = module/SocialogTumblr
 	url = https://github.com/Socialog/SocialogTumblr.git
