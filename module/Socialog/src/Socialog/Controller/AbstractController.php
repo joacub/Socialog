@@ -21,10 +21,7 @@ class AbstractController extends AbstractActionController
         $templateStack = $sm->get('ViewTemplatePathStack');
         $templateStack->addPath('themes/default');
 
-        $config = $sm->get('Config');
-
         $layout = $this->layout();
-        $layout->profile = $config['profile'];
         $layout->pages = $sm->get('socialog-pagemapper')->findAllPages();
 
         parent::onDispatch($e);

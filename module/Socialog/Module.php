@@ -24,7 +24,7 @@ class Module
     }
 
     /**
-     * Service Config
+     * Service Configuration
      *
      * @return array
      */
@@ -78,4 +78,24 @@ class Module
         );
     }
 
+    /**
+     * View Helper Configuration
+     */
+    public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'profile' => function($sm) {
+                    $sm = $sm->getServiceLocator();
+                    $config = $sm->get('Config');
+                    $profile = new Model\Profile();
+                    $profile->fromArray($config['profile']);
+                    $profileHelper = new View\Helper\Profile;
+                    $profileHelper->setProfile($profile);
+
+                    return $profileHelper;
+                }
+            ),
+        );
+    }
 }
