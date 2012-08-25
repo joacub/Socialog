@@ -1,0 +1,31 @@
+{% do headlink().appendStylesheet(basePath('/../themes/default/css/main.css')) %}
+
+{{- doctype() }}
+<html>
+
+    <head>
+		{{ headTitle("Socialog").setSeparator(' - ')|raw }}
+		{{ headLink() }}
+    </head>
+    <body>
+		{% trigger "theme:page.top" %}
+
+		<header class="main-header">
+			<hgroup>
+				{% if profile.avatar is defined %}
+					<img src="{{ profile.avatar }}"> 
+				{% endif %}
+				<h1>{{ profile.name }}</h1>
+			</hgroup>
+			{% include "navigation" %}
+		</header>
+
+		<section class="content">
+			{{ content|raw }}
+		</section>
+
+		{{ inlineScript() }}
+
+		{% trigger "theme:page.bottom" %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{#
+	Standard Homepage
+#}
+{% extends "base/home" %}
+
+{#
+{% block header %}
+	<h1>Header</h1>
+{% endblock %}
+#}
+
+{% block post %}
+	<h2>{{ post.title }}</h2>
+	{{ post.content|raw }}
+{% endblock %}

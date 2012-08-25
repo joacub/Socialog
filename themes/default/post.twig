@@ -1,0 +1,9 @@
+<h1>Test</h1>
+
+{% for comment in comments %}
+	{% include "comment" %}
+{% else %}
+	Geen commentaar
+{% endfor %}
+
+{% trigger "theme:home" %}

@@ -1,0 +1,27 @@
+[submodule "vendor/ZfcTwig"]
+	path = vendor/ZfcTwig
+	url = https://github.com/ZF-Commons/ZfcTwig.git
+
+[submodule "vendor/ZF2"]
+	path = vendor/ZF2
+	url = https://github.com/zendframework/zf2.git
+
+[submodule "vendor/SocialogAdmin"]
+	path = vendor/SocialogAdmin
+	url = https://github.com/Socialog/SocialogAdmin.git
+
+[submodule "vendor/SocialogAnalytics"]
+	path = vendor/SocialogAnalytics
+	url = https://github.com/Socialog/SocialogAnalytics.git
+
+[submodule "vendor/SocialogGithub"]
+	path = vendor/SocialogGithub
+	url = https://github.com/Socialog/SocialogGithub.git
+
+[submodule "vendor/SocialogInstall"]
+	path = vendor/SocialogInstall
+	url = https://github.com/Socialog/SocialogInstall.git
+
+[submodule "vendor/SocialogTumblr"]
+	path = vendor/SocialogTumblr
+	url = https://github.com/Socialog/SocialogTumblr.git
