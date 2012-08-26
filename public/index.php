@@ -5,7 +5,7 @@ use Zend\Mvc\Application;
 
 chdir(dirname(__DIR__));
 
-require 'vendor/Zend/Loader/AutoloaderFactory.php';
+require 'vendor/zf2/library/Zend/Loader/AutoloaderFactory.php';
 
 AutoloaderFactory::factory(array(
     'Zend\Loader\StandardAutoloader' => array(
