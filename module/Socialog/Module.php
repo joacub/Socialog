@@ -2,7 +2,6 @@
 
 namespace Socialog;
 
-
 class Module
 {
 

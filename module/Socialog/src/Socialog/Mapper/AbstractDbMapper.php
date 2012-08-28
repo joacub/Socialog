@@ -82,12 +82,12 @@ abstract class AbstractDbMapper
         if (!$entityPrototype) {
             $entityPrototype = $this->getEntityPrototype();
         }
-		
-		$current = $result->current();
 
-		if (!is_array($current)) {
-			return null;
-		}
+        $current = $result->current();
+
+        if (!is_array($current)) {
+            return null;
+        }
 
         return $hydrator->hydrate($current, $entityPrototype);
     }
