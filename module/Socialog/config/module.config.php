@@ -9,6 +9,15 @@ return array(
             'username' => '',
             'password' => ''
         ),
+		'cache' => array(
+			'name' => 'filesystem',
+			'options' => array(
+				'cachedir' => 'data/cache',
+				'ttl' => 3600,
+				'dir_permission' => 0760,
+				'file_permission' => 0660,
+			),
+		),
     ),
 
     /**
@@ -68,13 +77,6 @@ return array(
         'exception_template'		=> 'error/index',
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-    ),
-
-    'service_manager' => array(
-        'invokables' => array(
-            'socialog-postmapper' => 'Socialog\Mapper\PostMapper',
-            'socialog-pagemapper' => 'Socialog\Mapper\PageMapper',
         ),
     ),
 );

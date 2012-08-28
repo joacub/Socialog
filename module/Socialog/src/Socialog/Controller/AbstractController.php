@@ -22,7 +22,7 @@ class AbstractController extends AbstractActionController
         $templateStack->addPath('themes/default');
 
         $layout = $this->layout();
-        $layout->pages = $sm->get('socialog-pagemapper')->findAllPages();
+        $layout->pages = $sm->get('socialog_page_mapper')->findAllPages();
 
         parent::onDispatch($e);
     }

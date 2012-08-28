@@ -33,7 +33,7 @@ class PageController extends AbstractActionController
 
         $id = $this->params('id');
 
-        $pageMapper = $sm->get('socialog-pagemapper');
+        $pageMapper = $sm->get('socialog_page_mapper');
 
         $layout->profile = $config['profile'];
 
