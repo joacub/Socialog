@@ -38,6 +38,12 @@ class Module
     {
         return array(
             'factories' => array(
+                'triggerevent' => function($sm) {
+                    $sm = $sm->getServiceLocator();
+                    $triggerEvent = new View\Helper\TriggerEvent();
+                    $triggerEvent->setEventManager($sm->get('EventManager'));
+                    return $triggerEvent;
+                },
                 'profile' => function($sm) {
                     $sm = $sm->getServiceLocator();
                     $config = $sm->get('Config');
@@ -51,4 +57,5 @@ class Module
             ),
         );
     }
+
 }
