@@ -7,6 +7,7 @@ use Zend\EventManager\ListenerAggregateInterface;
 
 class EventHandler implements ListenerAggregateInterface
 {
+
     /**
      * @var array
      */
@@ -28,7 +29,12 @@ class EventHandler implements ListenerAggregateInterface
     public function attach(EventManagerInterface $events)
     {
         foreach ($this->hooks as $eventName => $methodName) {
-            $this->handlers[] = $events->attach($eventName, array($this, $methodName));
+            $priority = 1;
+            if (is_array($methodName)) {
+                $methodName = key($methodName);
+                $priority = $methodName[0];
+            }
+            $this->handlers[] = $events->attach($eventName, array($this, $methodName), $priority);
         }
 
         // Hook into sharedEventManager if we have shared hooks
@@ -58,4 +64,5 @@ class EventHandler implements ListenerAggregateInterface
         }
         $this->handlers = array();
     }
+
 }
