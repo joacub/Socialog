@@ -12,6 +12,7 @@ return array(
         'SocialogAnalytics',
         'SocialogTumblr',
         'SocialogInstall',
+        'SocialogCodeMirror',
     ),
     'module_listener_options' => array(
 

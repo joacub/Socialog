@@ -19,3 +19,7 @@
 [submodule "module/SocialogTumblr"]
 	path = module/SocialogTumblr
 	url = https://github.com/Socialog/SocialogTumblr.git
+[submodule "module/SocialogCodeMirror"]
+        path = module/SocialogCodeMirror
+        url = https://github.com/Socialog/SocialogCodeMirror.git
+
