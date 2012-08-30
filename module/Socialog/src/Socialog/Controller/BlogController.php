@@ -2,6 +2,7 @@
 
 namespace Socialog\Controller;
 
+use Socialog\View\Model\Theme;
 use Zend\View\Model\ViewModel;
 
 class BlogController extends AbstractController
@@ -9,8 +10,8 @@ class BlogController extends AbstractController
     public function homeAction()
     {
         $sm = $this->getServiceLocator();
-        $postMapper = $sm->get('socialog_tumblr_postmapper');
-
+        $postMapper = $sm->get('socialog_post_mapper');
+        
         $viewModel = new ViewModel;
         $viewModel->setTemplate('home');
         $viewModel->posts = $postMapper->findAllPosts();
