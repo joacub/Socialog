@@ -71,7 +71,7 @@ class AbstractService implements ServiceLocatorAwareInterface, EventManagerAware
      */
     protected function triggerEvent($event, $argv = array(), $callback = null)
     {
-        return $this->events()->trigger($event, $this, $argv, $callback);
+        return $this->getEventManager()->trigger($event, $this, $argv, $callback);
     }
 
     /**
