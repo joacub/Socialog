@@ -7,6 +7,7 @@ namespace Socialog\Model;
  */
 class Profile extends AbstractModel
 {
+
     /**
      * @var string
      */
@@ -16,6 +17,11 @@ class Profile extends AbstractModel
      * @var string
      */
     protected $photoUrl;
+
+    /**
+     * @var string
+     */
+    protected $tagline;
 
     public function getName()
     {
@@ -35,6 +41,16 @@ class Profile extends AbstractModel
     public function setPhotoUrl($photoUrl)
     {
         $this->photoUrl = $photoUrl;
+    }
+
+    public function getTagline()
+    {
+        return $this->tagline;
+    }
+
+    public function setTagline($tagline)
+    {
+        $this->tagline = $tagline;
     }
 
 }
