@@ -262,16 +262,23 @@ header.main-header {
   bottom: 0;
   border-right: 1px solid #C2C2C2; }
   header.main-header hgroup {
-    margin: 20px 35px; }
+    margin: 20px 35px;
+    text-align: center; }
     header.main-header hgroup h1 {
       font-size: 24px;
       color: #404040;
       padding-top: 15px;
       font-style: normal;
       text-shadow: 0 1px 1px #F9F9F9; }
+    header.main-header hgroup h2 {
+      margin: 10px 0;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 25px;
+      color: #4B4B4B; }
     header.main-header hgroup img {
       border: 3px solid #D75701;
-      width: 85px; }
+      width: 90px; }
   header.main-header nav {
     margin-top: 15px; }
     header.main-header nav ul {

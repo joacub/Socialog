@@ -6,6 +6,7 @@
     <head>
 		{{ headTitle("Socialog").setSeparator(' - ')|raw }}
 		{{ headLink() }}
+		{{ headScript() }}
     </head>
     <body>
 		{% trigger "theme:page.top" %}
@@ -14,6 +15,7 @@
 			<hgroup>
 				<img src="{{ profile().photourl }}">
 				<h1>{{ profile().name }}</h1>
+                <h2>{{ profile().tagline }}</h2>
 			</hgroup>
 			{% include "navigation" %}
 		</header>

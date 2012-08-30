@@ -42,6 +42,7 @@ header.main-header {
 	hgroup {
 
 		margin: 20px 35px;
+        text-align: center;
 
 		h1 {
 			font-size: 24px;
@@ -51,9 +52,17 @@ header.main-header {
 			text-shadow: 0 1px 1px #F9F9F9;
 		}
 
+        h2 {
+            margin: 10px 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 25px;
+            color: #4B4B4B;
+        }
+
 		img {
 			border: 3px solid #D75701;
-			width: 85px;
+			width: 90px;
 		}
 	}
 
