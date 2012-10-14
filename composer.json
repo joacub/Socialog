@@ -15,10 +15,12 @@
             "homepage": "http://www.socialog.io/"
         }
     ],
+    "minimum-stability" : "alpha",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
+        "rwoverdijk/assetmanager": "1.*",
         "doctrine/orm": "2.3.0",
-        "rwoverdijk/assetmanager": "1.*"
+        "doctrine/doctrine-orm-module": "0.5.*"
     }
 }
