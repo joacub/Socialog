@@ -10,4 +10,4 @@ command in your application's root directory:
 
 ```sh
 $ ./composer.phar require socialog/socialog
-``
+```
