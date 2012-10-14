@@ -16,7 +16,6 @@ return array(
     'factories' => array(
         'socialog_db' => function($sm) {
             $config = $sm->get('Config');
-
             return new \Zend\Db\Adapter\Adapter($config['socialog']['database']);
         },
         'socialog_cache' => function($sm) {
@@ -36,6 +35,7 @@ return array(
 
             return $storage;
         },
+
         /**
          * Logging
          */
@@ -55,6 +55,7 @@ return array(
             return $logger;
         },
     ),
+
     'initializers' => array(
         'socialog_db' => function($instance, $sm) {
             if ($instance instanceof Mapper\AbstractDbMapper) {

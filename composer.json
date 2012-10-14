@@ -21,6 +21,8 @@
         "zendframework/zendframework": "2.*",
         "rwoverdijk/assetmanager": "1.*",
         "doctrine/orm": "2.3.0",
-        "doctrine/doctrine-orm-module": "0.5.*"
+        "doctrine/doctrine-orm-module": "0.5.*",
+        "zf-commons/zfc-twig": "dev-master",
+        "twig/twig": "1.9 as v1.10.0"
     }
 }

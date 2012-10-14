@@ -12,7 +12,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class AbstractService implements ServiceLocatorAwareInterface, EventManagerAwareInterface
 {
-
     /**
      * @var EventManagerInterface
      */

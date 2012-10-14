@@ -5,6 +5,7 @@ return array(
         // Vendor
         'ZfcTwig',
         'RovakCodeMirror',
+        'AssetManager',
 
         // Socialog
         'Socialog',

@@ -1,7 +1,6 @@
 <?php
 
 return array(
-
     'socialog' => array(
         'database' => array(
             'driver' => 'Pdo_Mysql',
@@ -19,7 +18,16 @@ return array(
             ),
         ),
     ),
-
+    /**
+     * Asset Manager
+     */
+    'asset_manager' => array(
+        'resolver_configs' => array(
+            'paths' => array(
+                'theme' => __DIR__ . '/../../../themes/default/public',
+            ),
+        ),
+    ),
     /**
      * Router Configuration
      */
@@ -28,10 +36,10 @@ return array(
             'socialog-blog' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route'    => '/',
+                    'route' => '/',
                     'defaults' => array(
                         'controller' => 'socialog-blog',
-                        'action'     => 'home',
+                        'action' => 'home',
                     ),
                 ),
             ),
@@ -47,14 +55,13 @@ return array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
-                        'controller'	=> 'socialog-page',
-                        'action'		=> 'view',
+                        'controller' => 'socialog-page',
+                        'action' => 'view',
                     ),
                 ),
             ),
         ),
     ),
-
     /**
      * Controller Configuration
      */
@@ -64,17 +71,16 @@ return array(
             'socialog-page' => 'Socialog\Controller\PageController',
         ),
     ),
-
     /**
      * ViewManager Configuration
      */
     'view_manager' => array(
-        'display_not_found_reason'	=> true,
-        'display_exceptions'		=> true,
-        'doctype'					=> 'HTML5',
-        'not_found_template'		=> 'error/404',
-        'layout'					=> 'layout',
-        'exception_template'		=> 'error/index',
+        'display_not_found_reason' => true,
+        'display_exceptions' => true,
+        'doctype' => 'HTML5',
+        'not_found_template' => 'error/404',
+        'layout' => 'layout',
+        'exception_template' => 'error/index',
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),

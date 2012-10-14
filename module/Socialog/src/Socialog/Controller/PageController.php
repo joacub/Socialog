@@ -16,8 +16,6 @@ class PageController extends AbstractActionController
         $twigRenderingStrategy = $sl->get('TwigViewStrategy');
         $viewManager->getEventManager()->attach($twigRenderingStrategy, 100);
 
-//		$twig = $sl->get('TwigViewRenderer')->getEngine();
-
         // Add themes to template stack
         $templateStack = $sl->get('ViewTemplatePathStack');
         $templateStack->addPath('themes/default');
@@ -41,10 +39,6 @@ class PageController extends AbstractActionController
         $viewModel->setTemplate('page');
         $viewModel->page = $pageMapper->findById($id);
         $layout->pages = $pageMapper->findAllPages();
-        
-        $logger = $sm->get('socialog_logger');
-        
-        $logger->crit('test2');
 
         return $viewModel;
     }
