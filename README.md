@@ -9,5 +9,5 @@ You can install this module via [composer](https://getcomposer.org/) by running 
 command in your application's root directory:
 
 ```sh
-$ ./composer.phar require socialog/socialog`
+$ ./composer.phar require socialog/socialog
 ``
