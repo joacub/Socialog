@@ -2,11 +2,12 @@
 
 return array(
     'modules' => array(
-        // Vendor
+        // Doctrine
+        'DoctrineModule',
+        'DoctrineORMModule',
         'ZfcTwig',
         'RovakCodeMirror',
         'AssetManager',
-
         // Socialog
         'Socialog',
         'SocialogAdmin',
@@ -17,15 +18,13 @@ return array(
         'SocialogCodeMirror',
     ),
     'module_listener_options' => array(
-
         // Module locations
         'module_paths' => array(
             './module',
             './vendor',
         ),
-
         // Configuration
-        'config_glob_paths'    => array(
+        'config_glob_paths' => array(
             'config/autoload/{,*.}{global,local}.{php,ini}',
         ),
 //		'config_cache_enabled' => TRUE,
