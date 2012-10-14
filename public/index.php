@@ -3,15 +3,12 @@
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Application;
 
+/**
+ * This makes our life easier when dealing with paths. Everything is relative
+ * to the application root now.
+ */
 chdir(dirname(__DIR__));
 
-require 'vendor/zf2/library/Zend/Loader/AutoloaderFactory.php';
+require 'init_autoloader.php';
 
-AutoloaderFactory::factory(array(
-    'Zend\Loader\StandardAutoloader' => array(
-        'autoregister_zf' => true
-    )
-));
-
-// Run the application!
-Application::init(include 'config/application.config.php')->run();
+Application::init(include __DIR__ . '/../config/application.config.php')->run();

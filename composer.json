@@ -1,0 +1,24 @@
+{
+    "name": "socialog/socialog",
+    "description": "Blogging platform for Zend Framework 2",
+    "type": "Application",
+    "license": "MIT",
+    "keywords": [
+        "blog",
+        "socialog"
+    ],
+    "homepage": "http://www.socialog.io/",
+    "authors": [
+        {
+            "name": "Roy van Kaathoven",
+            "email": "roy@kj.nu",
+            "homepage": "http://www.socialog.io/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "doctrine/orm": "2.3.0",
+        "rwoverdijk/assetmanager": "1.*"
+    }
+}
