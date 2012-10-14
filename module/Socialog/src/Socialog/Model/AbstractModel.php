@@ -25,7 +25,7 @@ abstract class AbstractModel implements InputFilterAwareInterface
     protected $hydrator;
     
     /**
-     * Validate this method
+     * Validate this model
      * 
      * @return boolean
      */

@@ -9,6 +9,7 @@ use Socialog\Model\AbstractModel;
  */
 class Post extends AbstractModel implements EntityInterface
 {
+
     /**
      * @var integer
      */
@@ -25,6 +26,11 @@ class Post extends AbstractModel implements EntityInterface
     protected $content;
 
     /**
+     * @var string
+     */
+    protected $content_html;
+
+    /**
      * Filterconfig
      */
     protected $inputFilter = array(
@@ -33,11 +39,39 @@ class Post extends AbstractModel implements EntityInterface
         ),
         'title' => array(
             'required' => true,
+            'validators' => array(
+                array(
+                    'name' => 'string_length',
+                    'options' => array(
+                        'min' => 8
+                    ),
+                ),
+            ),
+            'filters' => array(
+                array('name' => 'StripTags'),
+                array('name' => 'StringTrim'),
+            ),
         ),
         'content' => array(
             'required' => true,
         ),
     );
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = (int) $id;
+    }
 
     /**
      * @return string
@@ -72,18 +106,19 @@ class Post extends AbstractModel implements EntityInterface
     }
 
     /**
-     * @return integer
+     * @return string
      */
-    public function getId()
+    public function getContentHtml()
     {
-        return $this->id;
+        return $this->content_html;
     }
 
     /**
-     * @param integer $id
+     * @param string $content_html
      */
-    public function setId($id)
+    public function setContentHtml($content_html)
     {
-        $this->id = (int) $id;
+        $this->content_html = $content_html;
     }
+
 }

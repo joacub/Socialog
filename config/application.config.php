@@ -4,6 +4,7 @@ return array(
     'modules' => array(
         // Vendor
         'ZfcTwig',
+        'RovakCodeMirror',
 
         // Socialog
         'Socialog',

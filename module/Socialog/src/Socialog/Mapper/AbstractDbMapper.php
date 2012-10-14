@@ -2,15 +2,17 @@
 
 namespace Socialog\Mapper;
 
+use InvalidArgumentException;
+use Socialog\Service\AbstractService;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
-use Zend\Stdlib\Hydrator\HydratorInterface;
 use Zend\Stdlib\Hydrator\ClassMethods;
+use Zend\Stdlib\Hydrator\HydratorInterface;
 
-abstract class AbstractDbMapper
+abstract class AbstractDbMapper extends AbstractService
 {
     /**
      * @var Adapter
@@ -65,8 +67,8 @@ abstract class AbstractDbMapper
 
     /**
      *
-     * @param \Zend\Db\Sql\Select $select
-     * @param type                $entityPrototype
+     * @param Select $select
+     * @param $entityPrototype
      */
     public function selectSingle(Select $select, $entityPrototype = null, HydratorInterface $hydrator = null)
     {
@@ -185,7 +187,7 @@ abstract class AbstractDbMapper
     public function getHydrator()
     {
         if (!$this->hydrator) {
-            $this->hydrator = new ClassMethods(false);
+            $this->hydrator = new ClassMethods(true);
         }
 
         return $this->hydrator;
@@ -250,6 +252,6 @@ abstract class AbstractDbMapper
 
             return $hydrator->extract($entity);
         }
-        throw new Exception\InvalidArgumentException('Entity passed to db mapper should be an array or object.');
+        throw new InvalidArgumentException('Entity passed to db mapper should be an array or object.');
     }
 }

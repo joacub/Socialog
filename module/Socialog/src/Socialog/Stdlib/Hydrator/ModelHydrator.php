@@ -15,11 +15,11 @@ class ModelHydrator extends ClassMethods
 
     public function __construct()
     {
-        parent::__construct(false);
+        parent::__construct(true);
 
         // Add ignored fields
         $this->ignoredFields[] = 'hydrator';
-        $this->ignoredFields[] = 'inputFilter';
+        $this->ignoredFields[] = 'input_filter';
 
         foreach ($this->ignoredFields as $field) {
             $this->addStrategy($field, new Strategy\NullStrategy());

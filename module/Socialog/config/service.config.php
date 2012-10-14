@@ -3,6 +3,7 @@
 namespace Socialog;
 
 use Zend\Cache\StorageFactory;
+use Zend\Log;
 
 return array(
 
@@ -34,6 +35,24 @@ return array(
             ));
 
             return $storage;
+        },
+        /**
+         * Logging
+         */
+        'socialog_logger' => function($sm) {
+            $logger = new Log\Logger;
+            $stream = new Log\Writer\Stream('data/log/' . date('Y-m-d') . '.txt');
+            $format = "%timestamp% %priorityName%: %message% %info%";
+            $stream->setFormatter(new Log\Formatter\Simple($format, 'd-m-Y H:i:s'));
+            $logger->addWriter($stream);
+            
+            $criticalStream = new Log\Writer\Stream('data/log/' . date('Y-m-d') . '-critical.txt');
+            $format = "%timestamp%: %message% %info%";
+            $criticalStream->setFormatter(new Log\Formatter\Simple($format, 'd-m-Y H:i:s'));
+            $criticalStream->addFilter(new Log\Filter\Priority(Log\Logger::ERR, '>='));
+            $logger->addWriter($criticalStream);
+ 
+            return $logger;
         },
     ),
     'initializers' => array(

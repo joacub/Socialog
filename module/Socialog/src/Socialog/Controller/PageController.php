@@ -41,6 +41,10 @@ class PageController extends AbstractActionController
         $viewModel->setTemplate('page');
         $viewModel->page = $pageMapper->findById($id);
         $layout->pages = $pageMapper->findAllPages();
+        
+        $logger = $sm->get('socialog_logger');
+        
+        $logger->crit('test2');
 
         return $viewModel;
     }

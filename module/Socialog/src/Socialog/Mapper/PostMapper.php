@@ -50,6 +50,10 @@ class PostMapper extends AbstractDbMapper
      */
     public function save(PostEntity $post)
     {
+        $this->triggerEvent('save', array(
+            'post' => $post
+        ));
+
         if ($post->getId()) {
             $this->update($post, array(
                 'id' => $post->getId()
