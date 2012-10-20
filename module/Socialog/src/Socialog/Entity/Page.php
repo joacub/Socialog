@@ -95,14 +95,4 @@ class Page extends AbstractModel implements EntityInterface
     {
         $this->title = $title;
     }
-
-    public function fromArray(array $data)
-    {
-        
-    }
-
-    public function toArray()
-    {
-        return array();
-    }
 }

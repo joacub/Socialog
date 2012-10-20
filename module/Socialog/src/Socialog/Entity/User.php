@@ -102,9 +102,4 @@ class User extends AbstractModel implements EntityInterface, UserInterface
     {
         $this->username = $username;
     }
-
-    public function toArray()
-    {
-        
-    }
 }

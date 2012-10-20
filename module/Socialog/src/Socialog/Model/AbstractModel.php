@@ -77,7 +77,7 @@ abstract class AbstractModel implements InputFilterAwareInterface
     public function getHydrator()
     {
         if (null == $this->hydrator) {
-            $this->hydrator = new ModelHydrator;
+            $this->hydrator = new \Zend\Stdlib\Hydrator\ClassMethods(false);
         }
 
         return $this->hydrator;

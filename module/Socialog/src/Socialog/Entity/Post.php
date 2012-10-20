@@ -129,14 +129,4 @@ class Post extends AbstractModel implements EntityInterface
     {
         $this->content_html = $content_html;
     }
-    
-    public function fromArray(array $data)
-    {
-        
-    }
-
-    public function toArray()
-    {
-        return array();
-    }
 }
