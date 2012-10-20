@@ -9,8 +9,6 @@ class BlogController extends AbstractController
 {
     public function homeAction()
     {
-        $this->layout('@theme/layout.twig');
-
         $sl = $this->getServiceLocator();
         $postMapper = $sl->get('socialog_post_mapper');
 

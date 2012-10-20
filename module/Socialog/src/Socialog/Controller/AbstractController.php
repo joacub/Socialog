@@ -9,6 +9,8 @@ class AbstractController extends AbstractActionController
 {
     public function onDispatch(MvcEvent $e)
     {
+        $this->layout('@theme/layout.twig');
+        
         $sm = $this->getServiceLocator();
 
         $viewManager = $sm->get('View');

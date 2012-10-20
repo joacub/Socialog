@@ -6,23 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
-class PageController extends AbstractActionController
+class PageController extends AbstractController
 {
-    public function onDispatch(MvcEvent $e)
-    {
-        $sl = $this->getServiceLocator();
-
-        $viewManager = $sl->get('View');
-        $twigRenderingStrategy = $sl->get('TwigViewStrategy');
-        $viewManager->getEventManager()->attach($twigRenderingStrategy, 100);
-
-        // Add themes to template stack
-        $templateStack = $sl->get('ViewTemplatePathStack');
-        $templateStack->addPath('themes/default');
-
-        parent::onDispatch($e);
-    }
-
     public function viewAction()
     {
         $sm = $this->getServiceLocator();
@@ -36,7 +21,7 @@ class PageController extends AbstractActionController
         $layout->profile = $config['profile'];
 
         $viewModel = new ViewModel;
-        $viewModel->setTemplate('page');
+        $viewModel->setTemplate('@theme/page.twig');
         $viewModel->page = $pageMapper->findById($id);
         $layout->pages = $pageMapper->findAllPages();
 
