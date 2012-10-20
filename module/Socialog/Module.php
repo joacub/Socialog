@@ -24,7 +24,7 @@ class Module
     {
         return include __DIR__ . '/config/service.config.php';
     }
-    
+
     /**
      * @return array
      */
@@ -35,7 +35,7 @@ class Module
 
     /**
      * View Helper Configuration
-     * 
+     *
      * @return array
      */
     public function getViewHelperConfig()

@@ -9,5 +9,5 @@ use Zend\View\Model\ViewModel;
  */
 class Theme extends ViewModel
 {
-    
+
 }

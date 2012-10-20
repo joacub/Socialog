@@ -10,7 +10,7 @@ use Socialog\Entity\Post as PostEntity;
 class PostMapper extends AbstractDoctrineMapper
 {
     protected $entityName = 'Socialog\Entity\Post';
-    
+
     /**
      * Retrieve all posts
      *
@@ -19,12 +19,12 @@ class PostMapper extends AbstractDoctrineMapper
     public function findLatestPosts()
     {
         $em = $this->getEntityManager();
-        
+
         $qb = $em->createQueryBuilder()
             ->select('p')
             ->from('Socialog\Entity\Post', 'p')
             ->orderBy('p.id', 'desc');
-        
+
         return $qb->getQuery()->getResult();
     }
 

@@ -12,9 +12,9 @@ abstract class AbstractDoctrineMapper extends AbstractService
      * @var EntityManager
      */
     protected $entityManager;
-    
+
     protected $entityName;
-    
+
     /**
      * @return \Doctrine\ORM\EntityManager
      */
@@ -22,7 +22,7 @@ abstract class AbstractDoctrineMapper extends AbstractService
     {
         return $this->entityManager;
     }
-    
+
     /**
      * @param \Doctrine\ORM\EntityManager $entityManager
      */
@@ -38,7 +38,7 @@ abstract class AbstractDoctrineMapper extends AbstractService
     {
         return $this->entityManager->getConnection();
     }
-    
+
     /**
      * @return \Doctrine\Common\Persistence\ObjectRepository
      */

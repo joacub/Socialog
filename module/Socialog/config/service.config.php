@@ -43,13 +43,13 @@ return array(
             $format = "%timestamp% %priorityName%: %message% %info%";
             $stream->setFormatter(new Log\Formatter\Simple($format, 'd-m-Y H:i:s'));
             $logger->addWriter($stream);
-            
+
             $criticalStream = new Log\Writer\Stream('data/log/' . date('Y-m-d') . '-critical.txt');
             $format = "%timestamp%: %message% %info%";
             $criticalStream->setFormatter(new Log\Formatter\Simple($format, 'd-m-Y H:i:s'));
             $criticalStream->addFilter(new Log\Filter\Priority(Log\Logger::ERR, '>='));
             $logger->addWriter($criticalStream);
- 
+
             return $logger;
         },
     ),

@@ -16,15 +16,15 @@ abstract class AbstractModel implements InputFilterAwareInterface
      * @var InputFilterInterface
      */
     protected $inputFilter;
-    
+
     /**
      * @var HydratorInterface
      */
     protected $hydrator;
-    
+
     /**
      * Validate this model
-     * 
+     *
      * @return boolean
      */
     public function isValid()

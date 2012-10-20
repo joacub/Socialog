@@ -11,7 +11,7 @@ use Zend\Db\Sql\Select;
 class PageMapper extends AbstractDoctrineMapper
 {
     protected $entityName = 'Socialog\Entity\Page';
-    
+
     /**
      * Retrieve all posts
      *

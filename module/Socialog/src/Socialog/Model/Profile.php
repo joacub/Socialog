@@ -22,14 +22,14 @@ class Profile extends AbstractModel
      * @var string
      */
     protected $tagline;
-    
+
     public function __construct(array $options = null)
     {
         if (is_array($options)) {
             $this->fromArray($options);
         }
     }
-    
+
     /**
      * @return string
      */
@@ -37,7 +37,7 @@ class Profile extends AbstractModel
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name
      */
@@ -45,7 +45,7 @@ class Profile extends AbstractModel
     {
         $this->name = $name;
     }
-    
+
     /**
      * @return string
      */
@@ -53,7 +53,7 @@ class Profile extends AbstractModel
     {
         return $this->photoUrl;
     }
-    
+
     /**
      * @param string $photoUrl
      */
@@ -61,7 +61,7 @@ class Profile extends AbstractModel
     {
         $this->photoUrl = $photoUrl;
     }
-    
+
     /**
      * @return string
      */
@@ -69,7 +69,7 @@ class Profile extends AbstractModel
     {
         return $this->tagline;
     }
-    
+
     /**
      * @param string $tagline
      */

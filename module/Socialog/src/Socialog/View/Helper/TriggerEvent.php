@@ -12,7 +12,7 @@ class TriggerEvent extends AbstractHelper implements EventManagerAwareInterface
      * @var EventManagerInterface
      */
     protected $events;
-    
+
     /**
      * @return EventManagerInterface
      */
@@ -20,7 +20,7 @@ class TriggerEvent extends AbstractHelper implements EventManagerAwareInterface
     {
         return $this->events;
     }
-    
+
     /**
      * @param EventManagerInterface $eventManager
      */

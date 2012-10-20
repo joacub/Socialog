@@ -18,34 +18,34 @@ return array(
             ),
         ),
     ),
-    
+
     /**
      * Doctrine
      */
-	'doctrine' => array(
-		'driver' => array(
-			'socialog_annotationdriver' => array(
-				'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-				'cache' => 'array',
-				'paths' => array(
-					__DIR__ . '/../src/Socialog/Entity',
-				),
-			),
-			'orm_default' => array(
-				'drivers' => array(
-					'Socialog' => 'socialog_annotationdriver',
-				)
-			),
-		),
-	),
- 
+    'doctrine' => array(
+        'driver' => array(
+            'socialog_annotationdriver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    __DIR__ . '/../src/Socialog/Entity',
+                ),
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Socialog' => 'socialog_annotationdriver',
+                )
+            ),
+        ),
+    ),
+
     'zfctwig' => array(
         'namespaces' => array(
             'theme' => __DIR__ . '/../../../themes/default',
             'base' => __DIR__ . '/../../../themes/base',
         )
     ),
- 
+
     /**
      * Asset Manager
      */
