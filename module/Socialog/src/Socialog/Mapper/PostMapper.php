@@ -16,9 +16,16 @@ class PostMapper extends AbstractDoctrineMapper
      *
      * @return array
      */
-    public function findAllPosts()
+    public function findLatestPosts()
     {
-        return $this->getRepository()->findAll();
+        $em = $this->getEntityManager();
+        
+        $qb = $em->createQueryBuilder()
+            ->select('p')
+            ->from('Socialog\Entity\Post', 'p')
+            ->orderBy('p.id', 'desc');
+        
+        return $qb->getQuery()->getResult();
     }
 
     /**
