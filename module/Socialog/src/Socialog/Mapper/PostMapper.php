@@ -31,7 +31,7 @@ class PostMapper extends AbstractDoctrineMapper
     /**
      * Find a post by ID
      *
-     * @param  integer               $id
+     * @param  integer $id
      * @return \Socialog\Entity\Post
      */
     public function findById($id)

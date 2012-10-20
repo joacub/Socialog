@@ -3,29 +3,39 @@
 namespace Socialog\Entity;
 
 use Socialog\Model\AbstractModel;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User Entity
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="users")
  */
 class User extends AbstractModel implements EntityInterface, UserInterface
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(name="id")
      */
     protected $id;
 
     /**
      * @var string
+     * @ORM\Column(name="email")
      */
     protected $email;
 
     /**
      * @var string
+     * @ORM\Column(name="password")
      */
     protected $password;
 
     /**
      * @var string
+     * @ORM\Column(name="username")
      */
     protected $username;
 

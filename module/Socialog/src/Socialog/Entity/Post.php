@@ -95,7 +95,7 @@ class Post extends AbstractModel implements EntityInterface
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->title = trim($title);
     }
 
     /**

@@ -7,10 +7,9 @@ use Socialog\Entity\User;
 /**
  * User Mapper
  */
-class UserMapper extends AbstractDbMapper
+class UserMapper extends AbstractDoctrineMapper
 {
-    protected $tableName = 'users';
-    protected $entityPrototype = 'Socialog\Entity\User';
+    protected $entityName = 'Socialog\Entity\User';
 
     /**
      * Retrieve all posts
@@ -20,11 +19,7 @@ class UserMapper extends AbstractDbMapper
      */
     public function findByEmail($email)
     {
-        $select = $this
-            ->select()
-            ->where(array('email' => $email));
-
-        return $this->selectSingle($select);
+        return $this->getRepository()->findOneByEmail($email);
     }
 
     /**
@@ -33,10 +28,6 @@ class UserMapper extends AbstractDbMapper
      */
     public function findByUsername($username)
     {
-        $select = $this
-            ->select()
-            ->where(array('username' => $username));
-
-        return $this->selectSingle($select);
+        return $this->getRepository()->findOneByUsername($username);
     }
 }

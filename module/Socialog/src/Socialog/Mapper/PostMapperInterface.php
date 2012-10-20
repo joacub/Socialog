@@ -6,5 +6,4 @@ interface PostMapperInterface
 {
     public function findAllPosts();
     public function findById($id);
-
 }
