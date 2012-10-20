@@ -4,12 +4,6 @@ namespace Socialog;
 
 class Module
 {
-
-    public function getConfig()
-    {
-        return include __DIR__ . '/config/module.config.php';
-    }
-
     public function getAutoloaderConfig()
     {
         return array(
@@ -30,32 +24,23 @@ class Module
     {
         return include __DIR__ . '/config/service.config.php';
     }
+    
+    /**
+     * @return array
+     */
+    public function getConfig()
+    {
+        return include __DIR__ . '/config/module.config.php';
+    }
 
     /**
      * View Helper Configuration
+     * 
+     * @return array
      */
     public function getViewHelperConfig()
     {
-        return array(
-            'factories' => array(
-                'triggerevent' => function($sm) {
-                    $sm = $sm->getServiceLocator();
-                    $triggerEvent = new View\Helper\TriggerEvent();
-                    $triggerEvent->setEventManager($sm->get('EventManager'));
-                    return $triggerEvent;
-                },
-                'profile' => function($sm) {
-                    $sm = $sm->getServiceLocator();
-                    $config = $sm->get('Config');
-                    $profile = new Model\Profile();
-                    $profile->fromArray($config['profile']);
-                    $profileHelper = new View\Helper\Profile;
-                    $profileHelper->setProfile($profile);
-
-                    return $profileHelper;
-                }
-            ),
-        );
+        return include __DIR__ . '/config/view_helpers.config.php';
     }
 
 }

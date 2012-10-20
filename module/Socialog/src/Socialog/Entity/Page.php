@@ -3,17 +3,24 @@
 namespace Socialog\Entity;
 
 use Socialog\Model\AbstractModel;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="pages")
+ */
 class Page extends AbstractModel implements EntityInterface
 {
-
     /**
-     * @var integer
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(name="id")
      */
     protected $id;
 
     /**
      * @var string
+     * @ORM\Column(name="content")
      */
     protected $content;
 
@@ -21,6 +28,7 @@ class Page extends AbstractModel implements EntityInterface
      * Page Title
      *
      * @var string
+     * @ORM\Column(name="title")
      */
     protected $title;
 
@@ -86,5 +94,15 @@ class Page extends AbstractModel implements EntityInterface
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    public function fromArray(array $data)
+    {
+        
+    }
+
+    public function toArray()
+    {
+        return array();
     }
 }

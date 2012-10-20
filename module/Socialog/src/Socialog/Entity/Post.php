@@ -3,30 +3,39 @@
 namespace Socialog\Entity;
 
 use Socialog\Model\AbstractModel;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Post
+ * @ORM\Entity
+ * @ORM\Table(name="posts")
  */
 class Post extends AbstractModel implements EntityInterface
 {
 
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(name="id")
      */
     protected $id;
 
     /**
      * @var string
+     * @ORM\Column(name="title")
      */
     protected $title;
 
     /**
      * @var string
+     * @ORM\Column(name="content")
      */
     protected $content;
 
     /**
      * @var string
+     * @ORM\Column(name="content_html")
      */
     protected $content_html;
 
@@ -120,5 +129,14 @@ class Post extends AbstractModel implements EntityInterface
     {
         $this->content_html = $content_html;
     }
+    
+    public function fromArray(array $data)
+    {
+        
+    }
 
+    public function toArray()
+    {
+        return array();
+    }
 }

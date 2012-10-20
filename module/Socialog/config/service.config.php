@@ -20,7 +20,6 @@ return array(
         },
         'socialog_cache' => function($sm) {
             $config = $sm->get('Config');
-
             $storage = StorageFactory::factory(array(
                 'adapter' => $config['socialog']['cache'],
                 'plugins' => array(
@@ -32,7 +31,6 @@ return array(
                     ),
                 ),
             ));
-
             return $storage;
         },
 
@@ -58,8 +56,8 @@ return array(
 
     'initializers' => array(
         'socialog_db' => function($instance, $sm) {
-            if ($instance instanceof Mapper\AbstractDbMapper) {
-                $instance->setDbAdapter($sm->get('socialog_db'));
+            if ($instance instanceof Mapper\AbstractDoctrineMapper) {
+                $instance->setEntityManager($sm->get('doctrine.entitymanager.orm_default'));
             }
         },
         'socialog_cache' => function($instance, $sm) {

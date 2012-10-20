@@ -8,15 +8,10 @@ use Zend\Db\Sql\Select;
 /**
  * Page PMapper
  */
-class PageMapper extends AbstractDbMapper
+class PageMapper extends AbstractDoctrineMapper
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'pages';
-
-    protected $entityPrototype = 'Socialog\Entity\Page';
-
+    protected $entityName = 'Socialog\Entity\Page';
+    
     /**
      * Retrieve all posts
      *
@@ -24,7 +19,7 @@ class PageMapper extends AbstractDbMapper
      */
     public function findAllPages()
     {
-        return $this->selectWith(new Select($this->tableName));
+        return $this->getRepository()->findAll();
     }
 
     /**
@@ -35,24 +30,15 @@ class PageMapper extends AbstractDbMapper
      */
     public function findById($id)
     {
-        $select = $this
-            ->select()
-            ->where(array('id' => $id));
-
-        return $this->selectSingle($select);
+        return $this->getRepository()->find($id);
     }
 
     /**
-     * @param \Socialog\Entity\Page $post
+     * @param \Socialog\Entity\Page $page
      */
-    public function save(PageEntity $post)
+    public function save(PageEntity $page)
     {
-        if ($post->getId()) {
-            $this->update($post, array(
-                'id' => $post->getId()
-            ), null, $post->getHydrator());
-        } else {
-            $this->insert($post, null, $post->getHydrator());
-        }
+       $this->getEntityManager()->persist($page);
+       $this->getEntityManager()->flush($page);
     }
 }

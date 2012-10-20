@@ -9,7 +9,6 @@ use Socialog\Model\AbstractModel;
  */
 class User extends AbstractModel implements EntityInterface, UserInterface
 {
-
     /**
      * @var integer
      */
@@ -102,5 +101,10 @@ class User extends AbstractModel implements EntityInterface, UserInterface
     public function setUsername($username)
     {
         $this->username = $username;
+    }
+
+    public function toArray()
+    {
+        
     }
 }

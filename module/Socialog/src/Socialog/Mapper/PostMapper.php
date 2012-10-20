@@ -3,20 +3,14 @@
 namespace Socialog\Mapper;
 
 use Socialog\Entity\Post as PostEntity;
-use Zend\Db\Sql\Select;
 
 /**
  * Post Mapper
  */
-class PostMapper extends AbstractDbMapper
+class PostMapper extends AbstractDoctrineMapper
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'posts';
-
-    protected $entityPrototype = 'Socialog\Entity\Post';
-
+    protected $entityName = 'Socialog\Entity\Post';
+    
     /**
      * Retrieve all posts
      *
@@ -24,10 +18,7 @@ class PostMapper extends AbstractDbMapper
      */
     public function findAllPosts()
     {
-        $select = new Select($this->tableName);
-        $select->order('id DESC');
-
-        return $this->selectWith($select);
+        return $this->getRepository()->findAll();
     }
 
     /**
@@ -38,11 +29,7 @@ class PostMapper extends AbstractDbMapper
      */
     public function findById($id)
     {
-        $select = $this
-            ->select()
-            ->where(array('id' => $id));
-
-        return $this->selectSingle($select);
+        return $this->getRepository()->find($id);
     }
 
     /**
@@ -50,16 +37,7 @@ class PostMapper extends AbstractDbMapper
      */
     public function save(PostEntity $post)
     {
-        $this->triggerEvent('save', array(
-            'post' => $post
-        ));
-
-        if ($post->getId()) {
-            $this->update($post, array(
-                'id' => $post->getId()
-            ), null, $post->getHydrator());
-        } else {
-            $this->insert($post, null, $post->getHydrator());
-        }
+       $this->getEntityManager()->persist($post);
+       $this->getEntityManager()->flush($post);
     }
 }

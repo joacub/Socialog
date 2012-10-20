@@ -15,7 +15,6 @@
             "homepage": "http://www.socialog.io/"
         }
     ],
-    "minimum-stability" : "alpha",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
@@ -23,6 +22,6 @@
         "doctrine/orm": "2.3.0",
         "doctrine/doctrine-orm-module": "0.5.*",
         "zf-commons/zfc-twig": "dev-master",
-        "twig/twig": "1.9 as v1.10.0"
+        "twig/twig": "1.*"
     }
 }

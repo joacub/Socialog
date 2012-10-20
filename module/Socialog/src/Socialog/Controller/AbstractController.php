@@ -18,6 +18,9 @@ class AbstractController extends AbstractActionController
 //		$twig = $sl->get('TwigViewRenderer')->getEngine();
 
         // Add themes to template stack
+        $templateStack = $sm->get('TwigEnvironment');
+        $templateStack->getLoader()->addPath('themes/default', 'theme');
+        
         $templateStack = $sm->get('ViewTemplatePathStack');
         $templateStack->addPath('themes/default');
 

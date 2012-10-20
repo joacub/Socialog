@@ -8,7 +8,6 @@ use Zend\View\Helper\AbstractHelper;
 
 class TriggerEvent extends AbstractHelper implements EventManagerAwareInterface
 {
-
     /**
      * @var EventManagerInterface
      */

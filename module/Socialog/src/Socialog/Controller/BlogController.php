@@ -9,11 +9,19 @@ class BlogController extends AbstractController
 {
     public function homeAction()
     {
-        $sm = $this->getServiceLocator();
-        $postMapper = $sm->get('socialog_post_mapper');
+        $this->layout('@theme/layout.twig');
+
+        $sl = $this->getServiceLocator();
+        $postMapper = $sl->get('socialog_post_mapper');
+        
+        $entityManager = $sl->get('doctrine.entitymanager.orm_default');
+        
+        $post = $entityManager->find('Socialog\Entity\Post', 1);
+        
+        var_dump($post);
         
         $viewModel = new ViewModel;
-        $viewModel->setTemplate('home');
+        $viewModel->setTemplate('@theme/home.twig');
         $viewModel->posts = $postMapper->findAllPosts();
 
         return $viewModel;

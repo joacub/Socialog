@@ -2,12 +2,10 @@
 
 namespace Socialog\Model;
 
-use Socialog\Stdlib\Hydrator\ModelHydrator;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
-use Zend\Stdlib\Hydrator\HydratorInterface;
 
 /**
  * Standard Model
@@ -18,7 +16,7 @@ abstract class AbstractModel implements InputFilterAwareInterface
      * @var InputFilterInterface
      */
     protected $inputFilter;
-
+    
     /**
      * @var HydratorInterface
      */
