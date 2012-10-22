@@ -11,13 +11,10 @@ return array(
         'socialog_user_mapper'	=> 'Socialog\Mapper\UserMapper',
         'socialog_post_mapper'	=> 'Socialog\Mapper\PostMapper',
         'socialog_page_mapper'	=> 'Socialog\Mapper\PageMapper',
+        'socialog_comment_mapper'	=> 'Socialog\Mapper\CommentMapper',
     ),
 
     'factories' => array(
-        'socialog_db' => function($sm) {
-            $config = $sm->get('Config');
-            return new \Zend\Db\Adapter\Adapter($config['socialog']['database']);
-        },
         'socialog_cache' => function($sm) {
             $config = $sm->get('Config');
             $storage = StorageFactory::factory(array(

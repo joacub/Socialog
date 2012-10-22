@@ -25,7 +25,7 @@ class PageMapper extends AbstractDoctrineMapper
     /**
      * Find a post by ID
      *
-     * @param  integer               $id
+     * @param  integer $id
      * @return \Socialog\Entity\Page
      */
     public function findById($id)

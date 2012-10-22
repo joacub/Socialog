@@ -23,6 +23,8 @@ class PostMapper extends AbstractDoctrineMapper
         $qb = $em->createQueryBuilder()
             ->select('p')
             ->from('Socialog\Entity\Post', 'p')
+            ->where('p.status = :status')
+            ->setParameter('status', PostEntity::STATUS_PUBLISHED)
             ->orderBy('p.id', 'desc');
 
         return $qb->getQuery()->getResult();

@@ -1,6 +1,10 @@
 <?php
 
 return array(
+
+    /**
+     * Socialog
+     */
     'socialog' => array(
         'database' => array(
             'driver' => 'Pdo_Mysql',
@@ -16,6 +20,13 @@ return array(
                 'dir_permission' => 0760,
                 'file_permission' => 0660,
             ),
+        ),
+        'frontend' => array(
+            'theme' => 'default'
+        ),
+        'entity_type' => array(
+            'Socialog\Entity\Post' => 1,
+            'Socialog\Entity\Page' => 2,
         ),
     ),
 
@@ -38,7 +49,10 @@ return array(
             ),
         ),
     ),
-
+    
+    /**
+     * Twig
+     */
     'zfctwig' => array(
         'namespaces' => array(
             'theme' => __DIR__ . '/../../../themes/default',
@@ -56,8 +70,9 @@ return array(
             ),
         ),
     ),
+
     /**
-     * Router Configuration
+     * Router
      */
     'router' => array(
         'routes' => array(
@@ -71,9 +86,7 @@ return array(
                     ),
                 ),
             ),
-            /**
-             * Pages Route
-             */
+
             'socialog-page' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -88,27 +101,45 @@ return array(
                     ),
                 ),
             ),
+
+            'socialog-post' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/post/:id',
+                    'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'socialog-post',
+                        'action' => 'view',
+                    ),
+                ),
+            ),
         ),
     ),
+
     /**
-     * Controller Configuration
+     * Controller
      */
     'controllers' => array(
         'invokables' => array(
             'socialog-blog' => 'Socialog\Controller\BlogController',
             'socialog-page' => 'Socialog\Controller\PageController',
+            'socialog-post' => 'Socialog\Controller\PostController',
         ),
     ),
+
     /**
-     * ViewManager Configuration
+     * ViewManager
      */
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,
         'doctype' => 'HTML5',
-        'not_found_template' => 'error/404',
+        'not_found_template' => '@theme/error/404.twig',
         'layout' => 'layout',
-        'exception_template' => 'error/index',
+        'exception_template' => '@theme/error/index.twig',
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),

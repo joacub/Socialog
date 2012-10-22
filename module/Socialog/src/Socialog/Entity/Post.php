@@ -13,11 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Post extends AbstractModel implements EntityInterface
 {
 
+    const STATUS_PUBLISHED = 1;
+    const STATUS_DRAFT = 2;
+
     /**
      * @var integer
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id")
+     * @ORM\Column(name="id", type="integer")
      */
     protected $id;
 
@@ -38,6 +41,12 @@ class Post extends AbstractModel implements EntityInterface
      * @ORM\Column(name="content_html")
      */
     protected $content_html;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="status", type="integer")
+     */
+    protected $status;
 
     /**
      * Filterconfig
@@ -72,14 +81,6 @@ class Post extends AbstractModel implements EntityInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param integer $id
-     */
-    public function setId($id)
-    {
-        $this->id = (int) $id;
     }
 
     /**
@@ -129,4 +130,23 @@ class Post extends AbstractModel implements EntityInterface
     {
         $this->content_html = $content_html;
     }
+    
+    /**
+     * Status
+     * 
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
+    /**
+     * @param integer $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = (int) $status;
+    }
+
 }

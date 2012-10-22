@@ -3,7 +3,6 @@
 namespace Socialog\Mapper;
 
 use InvalidArgumentException;
-use Socialog\Service\AbstractService;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\HydratingResultSet;
@@ -12,7 +11,7 @@ use Zend\Db\Sql\Sql;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 
-abstract class AbstractDbMapper extends AbstractService
+abstract class AbstractDbMapper extends AbstractMapper
 {
     /**
      * @var Adapter

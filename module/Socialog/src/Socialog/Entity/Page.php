@@ -56,15 +56,6 @@ class Page extends AbstractModel implements EntityInterface
     }
 
     /**
-     * Set ID
-     * @param integer $id
-     */
-    public function setId($id)
-    {
-        $this->id = (int) $id;
-    }
-
-    /**
      * @return string
      */
     public function getContent()

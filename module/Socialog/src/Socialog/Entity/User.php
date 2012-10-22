@@ -57,15 +57,6 @@ class User extends AbstractModel implements EntityInterface, UserInterface
     }
 
     /**
-     * Set ID
-     * @param integer $id
-     */
-    public function setId($id)
-    {
-        $this->id = (int) $id;
-    }
-
-    /**
      * @return string
      */
     public function getEmail()

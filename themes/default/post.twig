@@ -1,9 +1,22 @@
-<h1>Test</h1>
+<article class="post">
 
-{% for comment in comments %}
-	{% include "comment" %}
-{% else %}
-	Geen commentaar
-{% endfor %}
+    {% trigger "theme:post.pre" with {'post':post} %}
 
-{% trigger "theme:home" %}
+    <h1>{{ post.title }}</h1>
+    <br>
+    <div>
+        {{ post.contenthtml|raw }}
+    </div>
+    
+    
+    <h2>Comments</h2>
+
+    {% for comment in comments %}
+        {% include "@theme/comment.twig" %}
+    {% else %}
+        No comments
+    {% endfor %}
+
+    {% trigger "theme:post.post" with {'post':post}  %}
+
+</article>

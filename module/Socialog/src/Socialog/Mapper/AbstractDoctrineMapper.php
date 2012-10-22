@@ -4,15 +4,22 @@ namespace Socialog\Mapper;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
-use Socialog\Service\AbstractService;
 
-abstract class AbstractDoctrineMapper extends AbstractService
+/**
+ * Doctrine Mapper
+ * 
+ * Provides common doctrine methods
+ */
+abstract class AbstractDoctrineMapper extends AbstractMapper
 {
     /**
      * @var EntityManager
      */
     protected $entityManager;
-
+    
+    /**
+     * @var string
+     */
     protected $entityName;
 
     /**
