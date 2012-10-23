@@ -12,7 +12,7 @@ class PostMapper extends AbstractDoctrineMapper
     protected $entityName = 'Socialog\Entity\Post';
 
     /**
-     * Retrieve all posts
+     * Retrieve the latests posts which are published
      *
      * @return array
      */
@@ -33,7 +33,7 @@ class PostMapper extends AbstractDoctrineMapper
     /**
      * Find a post by ID
      *
-     * @param  integer $id
+     * @param integer $id
      * @return \Socialog\Entity\Post
      */
     public function findById($id)

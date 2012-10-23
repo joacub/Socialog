@@ -2,8 +2,6 @@
 
 namespace Socialog\Mapper;
 
-use Socialog\Entity\User;
-
 /**
  * User Mapper
  */
@@ -12,10 +10,10 @@ class UserMapper extends AbstractDoctrineMapper
     protected $entityName = 'Socialog\Entity\User';
 
     /**
-     * Retrieve all posts
-     *
+     * Retrieve a user by its email
+     * 
      * @param string $email
-     * @return User
+     * @return \Socialog\Entity\User
      */
     public function findByEmail($email)
     {
@@ -24,7 +22,7 @@ class UserMapper extends AbstractDoctrineMapper
 
     /**
      * @param string $username
-     * @return User
+     * @return \Socialog\Entity\User
      */
     public function findByUsername($username)
     {

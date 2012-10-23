@@ -7,16 +7,18 @@ use Socialog\Entity\Comment as CommentEntity;
 use Socialog\Entity\EntityInterface;
 
 /**
- * Page PMapper
+ * Comments Mapper
  */
 class CommentMapper extends AbstractDoctrineMapper
 {
     protected $entityName = 'Socialog\Entity\Comment';
-
+    
     /**
-     * Retrieve all posts
-     *
+     * Return all comments by a given Entity
+     * 
+     * @param \Socialog\Entity\EntityInterface $entity
      * @return array
+     * @throws Exception
      */
     public function findByEntity(EntityInterface $entity)
     {
@@ -41,7 +43,7 @@ class CommentMapper extends AbstractDoctrineMapper
     }
 
     /**
-     * Find a post by ID
+     * Find a comment by ID
      *
      * @param  integer $id
      * @return \Socialog\Entity\Comment

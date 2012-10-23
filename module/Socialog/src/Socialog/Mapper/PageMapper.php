@@ -6,14 +6,14 @@ use Socialog\Entity\Page as PageEntity;
 use Zend\Db\Sql\Select;
 
 /**
- * Page PMapper
+ * Page Mapper
  */
 class PageMapper extends AbstractDoctrineMapper
 {
     protected $entityName = 'Socialog\Entity\Page';
 
     /**
-     * Retrieve all posts
+     * Retrieve all pages
      *
      * @return array
      */
@@ -23,7 +23,7 @@ class PageMapper extends AbstractDoctrineMapper
     }
 
     /**
-     * Find a post by ID
+     * Find a page by ID
      *
      * @param  integer $id
      * @return \Socialog\Entity\Page

@@ -7,6 +7,9 @@ use Zend\Mvc\MvcEvent;
 
 class AbstractController extends AbstractActionController
 {
+    /**
+     * @param \Zend\Mvc\MvcEvent $e
+     */
     public function onDispatch(MvcEvent $e)
     {
         $this->layout('@theme/layout.twig');
