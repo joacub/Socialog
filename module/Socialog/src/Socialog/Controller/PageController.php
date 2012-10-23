@@ -2,28 +2,27 @@
 
 namespace Socialog\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Zend\Mvc\MvcEvent;
 
+/**
+ * Page
+ */
 class PageController extends AbstractController
 {
     public function viewAction()
     {
-        $sm = $this->getServiceLocator();
-        $layout =  $this->layout();
-        $config = $sm->get('Config');
+        $sl = $this->getServiceLocator();
+        $config = $sl->get('Config');
 
-        $id = $this->params('id');
-
-        $pageMapper = $sm->get('socialog_page_mapper');
-
-        $layout->profile = $config['profile'];
+        $pageMapper = $sl->get('socialog_page_mapper');
 
         $viewModel = new ViewModel;
         $viewModel->setTemplate('@theme/page.twig');
-        $viewModel->page = $pageMapper->findById($id);
+        $viewModel->page = $pageMapper->findById($this->params('id'));
+
+        $layout =  $this->layout();
         $layout->pages = $pageMapper->findAllPages();
+        $layout->profile = $config['profile'];
 
         return $viewModel;
     }
