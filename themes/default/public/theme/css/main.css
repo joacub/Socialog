@@ -237,7 +237,7 @@ mark {
 /* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 body {
   color: #404040;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Optima, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 15px; }
 
 a {
@@ -256,46 +256,44 @@ h1 {
 header.main-header {
   position: fixed;
   width: 200px;
-  background-color: #E9E9E9;
+  background-color: #61b0e9;
   left: 0;
   top: 0;
   bottom: 0;
-  border-right: 1px solid #C2C2C2; }
+  border-right: 1px solid #C2C2C2;
+  color: #FFF; }
   header.main-header hgroup {
     margin: 20px 35px;
     text-align: center; }
     header.main-header hgroup h1 {
       font-size: 24px;
-      color: #404040;
       padding-top: 15px;
       font-style: normal;
-      text-shadow: 0 1px 1px #F9F9F9; }
+      color: #FFF; }
     header.main-header hgroup h2 {
       margin: 10px 0;
       font-size: 14px;
       font-weight: normal;
       line-height: 25px;
-      color: #4B4B4B; }
+      color: #FFF; }
     header.main-header hgroup img {
-      border: 3px solid #D75701;
+      border: 3px solid #FFF;
       width: 90px; }
   header.main-header nav {
     margin-top: 15px; }
     header.main-header nav ul {
-      border-top: 1px solid #D2D2D2;
       list-style: none;
       margin-left: 0; }
-      header.main-header nav ul li {
-        border-bottom: 1px solid #D2D2D2; }
     header.main-header nav a {
       position: relative;
       padding: 15px 30px;
-      color: #404040;
+      color: #FFF;
       display: block;
       font-weight: 500;
-      text-shadow: 0 1px 1px #F9F9F9; }
+      font-size: 12px;
+      font-weight: bold; }
       header.main-header nav a:hover {
-        background: #D75701;
+        background: #6bbef6;
         color: white;
         text-shadow: none; }
 

@@ -11,10 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Page extends AbstractModel implements EntityInterface
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id")
+     * @ORM\Column(name="id", type="integer")
      */
     protected $id;
 
@@ -23,6 +24,12 @@ class Page extends AbstractModel implements EntityInterface
      * @ORM\Column(name="content")
      */
     protected $content;
+
+    /**
+     * @var string
+     * @ORM\Column(name="content_html")
+     */
+    protected $contentHtml;
 
     /**
      * Page Title
@@ -70,6 +77,22 @@ class Page extends AbstractModel implements EntityInterface
     {
         $this->content = $content;
     }
+    
+    /**
+     * @return string
+     */
+    public function getContentHtml()
+    {
+        return $this->contentHtml;
+    }
+    
+    /**
+     * @param string $contentHtml
+     */
+    public function setContentHtml($contentHtml)
+    {
+        $this->contentHtml = $contentHtml;
+    }
 
     /**
      * @return string
@@ -86,4 +109,5 @@ class Page extends AbstractModel implements EntityInterface
     {
         $this->title = $title;
     }
+
 }

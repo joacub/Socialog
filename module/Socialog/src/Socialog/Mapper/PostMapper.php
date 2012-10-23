@@ -9,6 +9,9 @@ use Socialog\Entity\Post as PostEntity;
  */
 class PostMapper extends AbstractDoctrineMapper
 {
+    /**
+     * @var string
+     */
     protected $entityName = 'Socialog\Entity\Post';
 
     /**
@@ -21,11 +24,11 @@ class PostMapper extends AbstractDoctrineMapper
         $em = $this->getEntityManager();
 
         $qb = $em->createQueryBuilder()
-            ->select('p')
-            ->from('Socialog\Entity\Post', 'p')
-            ->where('p.status = :status')
-            ->setParameter('status', PostEntity::STATUS_PUBLISHED)
-            ->orderBy('p.id', 'desc');
+                ->select('p')
+                ->from('Socialog\Entity\Post', 'p')
+                ->where('p.status = :status')
+                ->setParameter('status', PostEntity::STATUS_PUBLISHED)
+                ->orderBy('p.id', 'desc');
 
         return $qb->getQuery()->getResult();
     }
@@ -46,7 +49,12 @@ class PostMapper extends AbstractDoctrineMapper
      */
     public function save(PostEntity $post)
     {
-       $this->getEntityManager()->persist($post);
-       $this->getEntityManager()->flush($post);
+        $this->triggerEvent('save', array(
+            'post' => $post
+        ));
+
+        $this->getEntityManager()->persist($post);
+        $this->getEntityManager()->flush($post);
     }
+
 }

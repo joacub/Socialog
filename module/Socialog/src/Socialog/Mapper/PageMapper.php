@@ -3,13 +3,15 @@
 namespace Socialog\Mapper;
 
 use Socialog\Entity\Page as PageEntity;
-use Zend\Db\Sql\Select;
 
 /**
  * Page Mapper
  */
 class PageMapper extends AbstractDoctrineMapper
 {
+    /**
+     * @var string
+     */
     protected $entityName = 'Socialog\Entity\Page';
 
     /**
@@ -38,7 +40,11 @@ class PageMapper extends AbstractDoctrineMapper
      */
     public function save(PageEntity $page)
     {
-       $this->getEntityManager()->persist($page);
-       $this->getEntityManager()->flush($page);
+        $this->triggerEvent('save', array(
+            'page' => $page
+        ));
+
+        $this->getEntityManager()->persist($page);
+        $this->getEntityManager()->flush($page);
     }
 }

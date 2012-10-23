@@ -1,4 +1,4 @@
 <p>
-	<b>{{ comment.username }}</b><br>
+	<b>{{ comment.username }}</b> ({{ comment.date|date("d-m-Y H:i") }})<br>
 	{{ comment.comment }}
 </p>

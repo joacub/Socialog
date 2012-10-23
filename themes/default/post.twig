@@ -4,11 +4,8 @@
 
     <h1>{{ post.title }}</h1>
     <br>
-    <div>
-        {{ post.contenthtml|raw }}
-    </div>
-    
-    
+    {{ post.contenthtml|raw }}
+
     <h2>Comments</h2>
 
     {% for comment in comments %}
@@ -16,6 +13,41 @@
     {% else %}
         No comments
     {% endfor %}
+
+    <h2>Add comment</h2>
+    <div class="block-content">
+        
+        {% autoescape false %}
+        
+            {% do commentForm.prepare() %}
+
+            {{ form().openTag(commentForm) }}
+
+                <div class="control-group">
+                    <label class="control-label" for="username">Username</label>
+                    <div class="controls">
+                        {{ formText(commentForm.get('username')) }}
+                        {{ formElementErrors(commentForm.get('username')) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="content">Comment</label>
+                    <div class="controls">
+                        {{ formTextarea(commentForm.get('comment')) }}
+                        {{ formElementErrors(commentForm.get('comment')) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ formSubmit(commentForm.get('submit')) }}
+                    </div>
+                </div>
+
+            {{ form.closeTag() }}
+        {% endautoescape %}
+    </div>
 
     {% trigger "theme:post.post" with {'post':post}  %}
 

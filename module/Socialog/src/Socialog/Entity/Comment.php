@@ -20,37 +20,71 @@ class Comment extends AbstractModel
      * @var integer
      */
     protected $id;
-    
+
     /**
      * @ORM\Column(name="username")
      * @var string
      */
     protected $username;
-    
+
     /**
      * @ORM\Column(name="comment")
      * @var string
      */
     protected $comment;
-    
+
     /**
      * @ORM\Column(name="post_date", type="datetime")
      * @var DateTime
      */
     protected $date;
-    
+
     /**
      * @ORM\Column(name="entity_id", type="integer")
      * @var integer
      */
     protected $entityId;
-    
+
     /**
      * @ORM\Column(name="entity_type", type="integer")
      * @var integer
      */
     protected $entityType;
-    
+
+    /**
+     * Filterconfig
+     */
+    protected $inputFilter = array(
+        'username' => array(
+            'required' => true,
+            'validators' => array(
+                array(
+                    'name' => 'string_length',
+                    'options' => array(
+                        'min' => 4
+                    ),
+                ),
+            ),
+            'filters' => array(
+                array('name' => 'StripTags'),
+                array('name' => 'StringTrim'),
+            ),
+        ),
+        'comment' => array(
+            'required' => true,
+            'validators' => array(
+                array(
+                    'name' => 'not_empty',
+                ),
+            ),
+        ),
+    );
+
+    public function __construct()
+    {
+        $this->setDate(new DateTime);
+    }
+
     /**
      * @return integer
      */
@@ -58,7 +92,7 @@ class Comment extends AbstractModel
     {
         return $this->id;
     }
-    
+
     /**
      * @return string
      */
@@ -66,7 +100,7 @@ class Comment extends AbstractModel
     {
         return $this->username;
     }
-    
+
     /**
      * @param string $username
      */
@@ -74,7 +108,7 @@ class Comment extends AbstractModel
     {
         $this->username = $username;
     }
-    
+
     /**
      * @return string
      */
@@ -82,7 +116,7 @@ class Comment extends AbstractModel
     {
         return $this->comment;
     }
-    
+
     /**
      * @param string $comment
      */
@@ -90,7 +124,7 @@ class Comment extends AbstractModel
     {
         $this->comment = $comment;
     }
-    
+
     /**
      * @return DateTime
      */
@@ -98,7 +132,7 @@ class Comment extends AbstractModel
     {
         return $this->date;
     }
-    
+
     /**
      * 
      * @param DateTime $date
@@ -106,5 +140,21 @@ class Comment extends AbstractModel
     public function setDate(DateTime $date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * @param integer $entityId
+     */
+    public function setEntityId($entityId)
+    {
+        $this->entityId = (int)$entityId;
+    }
+    
+    /**
+     * @param integer $entityType
+     */
+    public function setEntityType($entityType)
+    {
+        $this->entityType = (int)$entityType;
     }
 }
