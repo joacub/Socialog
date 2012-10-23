@@ -3,7 +3,7 @@
 	<target name="sass">
 		<exec dir="themes/default" executable="sass" description="Runs SASS for the default theme">
 			<arg value="--watch" />
-			<arg value="scss:css" />
+			<arg value="scss:public/theme/css" />
 		</exec>
 	</target>
 </project>
