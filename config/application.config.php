@@ -16,6 +16,7 @@ return array(
         'SocialogTumblr',
         'SocialogInstall',
         'SocialogCodeMirror',
+        'SocialogDisqus',
     ),
     'module_listener_options' => array(
         // Module locations
