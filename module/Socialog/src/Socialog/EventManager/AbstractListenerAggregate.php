@@ -4,14 +4,20 @@ namespace Socialog\EventManager;
 
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class EventHandler implements ListenerAggregateInterface
+/**
+ * Event Handler
+ */
+class AbstractListenerAggregate implements 
+    ListenerAggregateInterface,
+    ServiceLocatorAwareInterface
 {
-
     /**
      * @var array
      */
-    protected $handlers = array();
+    private $handlers = array();
 
     /**
      * @var array
@@ -21,7 +27,19 @@ class EventHandler implements ListenerAggregateInterface
     /**
      * @var array
      */
-    protected $sharedHooks = array();
+    protected $globalHooks = array();
+    
+    /**
+     * Char for which to search for when defining a priority
+     * 
+     * @var string
+     */
+    protected $priorityChar = '@';
+   
+    /**
+     * @var ServiceLocatorInterface
+     */
+    protected $locator;
 
     /**
      * @param EventManagerInterface $events
@@ -30,22 +48,20 @@ class EventHandler implements ListenerAggregateInterface
     {
         foreach ($this->hooks as $eventName => $methodName) {
             $priority = 1;
-            if (is_array($methodName)) {
-                $methodName = key($methodName);
-                $priority = $methodName[0];
+            if (strpos($eventName, $this->priorityChar) !== false) {
+                list($eventName, $priority) = explode($this->priorityChar, $eventName);
             }
             $this->handlers[] = $events->attach($eventName, array($this, $methodName), $priority);
         }
 
         // Hook into sharedEventManager if we have shared hooks
-        if (isset($this->sharedHooks) && is_array($this->sharedHooks)) {
+        if (isset($this->globalHooks) && is_array($this->globalHooks)) {
             $sharedEventManager = $events->getSharedManager();
-            foreach ($this->sharedHooks as $objectName => $events) {
+            foreach ($this->globalHooks as $objectName => $events) {
                 foreach ($events as $eventName => $methodName) {
                     $priority = 1;
-                    if (is_array($methodName)) {
-                        $methodName = key($methodName);
-                        $priority = $methodName[0];
+                    if (strpos($eventName, $this->priorityChar) !== false) {
+                        list($eventName, $priority) = explode($this->priorityChar, $eventName);
                     }
                     $sharedEventManager->attach($objectName, $eventName, array($this, $methodName), $priority);
                 }
@@ -62,7 +78,25 @@ class EventHandler implements ListenerAggregateInterface
             $events->detach($handler);
             unset($this->handlers[$key]);
         }
-        $this->handlers = array();
     }
 
+    /**
+     * set service locator
+     *
+     * @param ServiceLocatorInterface $locator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->locator = $locator;
+    }
+
+    /**
+     * get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->locator;
+    }
 }
