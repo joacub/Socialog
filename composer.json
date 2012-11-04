@@ -19,9 +19,11 @@
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
         "rwoverdijk/assetmanager": "1.*",
-        "doctrine/orm": "2.3.0",
-        "doctrine/doctrine-orm-module": "0.5.*",
+        "doctrine/doctrine-orm-module": "0.5.*@alpha",
+        "doctrine/migrations": "1.*@dev",
+        "doctrine/doctrine-module": "0.5.*@dev",
+        "doctrine/data-fixtures": "1.*@dev",
         "zf-commons/zfc-twig": "dev-master",
-        "twig/twig": "1.*"
+        "twig/twig": "dev-master"
     }
 }
