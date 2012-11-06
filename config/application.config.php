@@ -1,23 +1,7 @@
 <?php
 
 return array(
-    'modules' => array(
-        // Doctrine
-        'DoctrineModule',
-        'DoctrineORMModule',
-        'ZfcTwig',
-        'RovakCodeMirror',
-        'AssetManager',
-        // Socialog
-        'Socialog',
-        'SocialogAdmin',
-        'SocialogGithub',
-        'SocialogAnalytics',
-        'SocialogTumblr',
-        'SocialogInstall',
-        'SocialogCodeMirror',
-        'SocialogDisqus',
-    ),
+    'modules' => include __DIR__  . '/modules.config.php',
     'module_listener_options' => array(
         // Module locations
         'module_paths' => array(
