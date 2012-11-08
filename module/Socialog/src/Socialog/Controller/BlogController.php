@@ -2,7 +2,6 @@
 
 namespace Socialog\Controller;
 
-use Socialog\View\Model\Theme;
 use Zend\View\Model\ViewModel;
 
 class BlogController extends AbstractController
