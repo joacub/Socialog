@@ -6,6 +6,11 @@ use Zend\Cache\StorageFactory;
 use Zend\Log;
 
 return array(
+    
+    'aliases' => array(
+        'socialog_orm'  => 'doctrine.entitymanager.orm_default',
+        'socialog_dbal' => 'doctrine.connection.orm_default',
+    ),
 
     'invokables' => array(
         'socialog_user_mapper'	=> 'Socialog\Mapper\UserMapper',
@@ -54,7 +59,7 @@ return array(
     'initializers' => array(
         'socialog_db' => function($instance, $sm) {
             if ($instance instanceof Mapper\AbstractDoctrineMapper) {
-                $instance->setEntityManager($sm->get('doctrine.entitymanager.orm_default'));
+                $instance->setEntityManager($sm->get('socialog_orm'));
             }
         },
         'socialog_cache' => function($instance, $sm) {
