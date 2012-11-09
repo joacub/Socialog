@@ -22,7 +22,6 @@
         "doctrine/doctrine-orm-module": "dev-master",
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-module": "dev-master",
-        "doctrine/data-fixtures": "v1.0.0-ALPHA3",
         "zf-commons/zfc-twig": "dev-master",
         "rovak/codemirror": "dev-master"
     }
